@@ -1,5 +1,9 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+health-check:
+    path: /health-check
+    controller: App\UI\Http\HealthCheckController
+
+
+post-users:
+    path: /users
+    methods: POST
+    controller: App\UI\Http\CreateUserController
