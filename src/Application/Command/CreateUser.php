@@ -1,11 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Application\Command;
 
-final class CreateUser
+use Ramsey\Uuid\UuidInterface;
+
+final readonly class CreateUser
 {
     public function __construct(
-
+        public readonly UuidInterface $id,
+        public readonly UuidInterface $roleId,
+        public readonly string $name,
+        public readonly string $description,
+        public readonly string $email,
     ) {
     }
 }
