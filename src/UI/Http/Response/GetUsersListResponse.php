@@ -17,7 +17,7 @@ class GetUsersListResponse extends JsonResponse
         return new self([
             'data' => \array_map(
                 static fn (UserDTO $user): array => [
-                    'type' => 'products',
+                    'type' => 'users',
                     'id' => $user->id,
                     'attributes' => [
                         'name' => $user->name,

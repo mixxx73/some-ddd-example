@@ -19,7 +19,7 @@ class MessengerQueryBus implements QueryBus
     public function query($query): mixed
     {
         $envelope = $this->messageBus->dispatch(
-            $query instanceof Envelope ? $query : new Envelope($query)
+            $query instanceof Envelope ? $query : new Envelope($query),
         );
 
         return $envelope->last(HandledStamp::class)->getResult();

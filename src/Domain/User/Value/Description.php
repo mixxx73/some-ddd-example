@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Domain\User\Value;
 
 use App\Domain\User\Exception\InvalidDescription;
+use Symfony\Component\Validator\Constraints as Validators;
+use Symfony\Component\Validator\Validation;
 
 class Description
 {
@@ -17,7 +19,12 @@ class Description
             return;
         }
 
-        if (\strlen($description) > self::MAXIMUM_LENGTH) {
+        $validator = Validation::createValidator();
+        $violations = $validator->validate($this->description, [
+            new Validators\Length(['max' => self::MAXIMUM_LENGTH]),
+        ]);
+
+        if (\count($violations) > 0) {
             throw InvalidDescription::lengthRequirement(self::MAXIMUM_LENGTH);
         }
     }

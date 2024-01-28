@@ -30,10 +30,10 @@ class User
         return new self($id, $categoryId, $name, $description, $email);
     }
 
-    public function rename($name): void
+    public function rename($name): self
     {
         $this->name = $name;
 
-        // here more logic if needed
+        return $this;
     }
 }
