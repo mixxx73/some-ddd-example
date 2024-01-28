@@ -9,7 +9,7 @@ use Ramsey\Uuid\UuidInterface;
 class UserArrived
 {
     /**
-     * This can translate a message from an external queue.
+     * Here we translate from an external queue.
      */
     public function __construct(public UuidInterface $roleId)
     {

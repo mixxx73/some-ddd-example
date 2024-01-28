@@ -18,11 +18,12 @@ class AddUserMessageAdapter
 
     public function __invoke(UuidInterface $uuid): void
     {
+        // @todo fix it
         $userArrived = new UserArrived($uuid);
 
         $this->commandBus->dispatch(
             new CreateUser(
-                Uuid::uuid4(), // simplification for demo purposes
+                Uuid::uuid4(),
                 $userArrived->roleId,
                 'name',
                 \str_repeat('From queue ', 10),
