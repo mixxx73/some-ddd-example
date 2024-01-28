@@ -1,0 +1,15 @@
+default:
+  gherkin:
+    filters:
+      tags: ~@php8
+  extensions:
+    Ubirak\RestApiBehatExtension\Extension:
+      rest:
+        base_url: https://localhost:8000
+        store_response: true
+  suites:
+    default:
+      contexts:
+        - Ubirak\RestApiBehatExtension\RestApiContext
+        - Ubirak\RestApiBehatExtension\Json\JsonContext
+        - FeatureContext
