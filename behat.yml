@@ -3,8 +3,10 @@ default:
     filters:
       tags: ~@php8
   extensions:
+    FriendsOfBehat\SymfonyExtension: ~
     Ubirak\RestApiBehatExtension\Extension:
       rest:
+        kernel: test
         base_url: https://localhost:8000
         store_response: true
   suites:
